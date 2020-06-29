@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Country</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+            integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+            crossorigin="anonymous"></script>
+</head>
+<body>
+<h1>Edit Country</h1>
+<p>
+    <a href="/country/list">Black to list</a>
+</p>
+<form method="post" th:object="${country}" th:action="@{/country/edit}" class="form-group">
+    <p><input type="hidden" th:field="*{id}"></p>
+    <table>
+        <tr>
+            <th>Name:</th>
+            <td><input class="form-control" type="text" th:field="*{name}"></td>
+        </tr>
+
+        <tr>
+            <td><input type="submit" value="Edit" class="btn btn-outline-success btn-sm"></td>
+            <td><input type="reset" value="Reset" class="btn btn-outline-warning btn-sm"></td>
+        </tr>
+    </table>
+    <br>
+    <th:block th:if="${message}">
+        <span th:text="${message}" class="alert alert-info" role="alert"></span>
+    </th:block>
+</form>
+</body>
+</html>
